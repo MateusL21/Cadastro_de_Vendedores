@@ -1,11 +1,24 @@
 package com.abutua.sellersbackend.models;
 
-public class Sellers {
+public class Seller {
     private Long id;
     private String name;
     private Double salary;
     private Double bonus;
-    private Integer gender;
+    private Integer gender; 
+
+    public Seller(Long id, String name, Double salary, Double bonus, Integer gender) {
+        this.id = id;
+        this.name = name;
+        this.salary = salary;
+        this.bonus = bonus;
+        this.gender = gender;
+    }
+
+    public Seller(){
+
+    }
+
     public Long getId() {
         return id;
     }
