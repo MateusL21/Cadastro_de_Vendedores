@@ -1,10 +1,27 @@
 package com.abutua.sellersbackend.models;
 
+import javax.annotation.processing.Generated;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="TBL_SELLERS")
 public class Seller {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+
     private Double salary;
+
     private Double bonus;
+
     private Integer gender; 
 
     public Seller(Long id, String name, Double salary, Double bonus, Integer gender) {

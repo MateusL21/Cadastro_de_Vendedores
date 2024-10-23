@@ -1,5 +1,6 @@
 package com.abutua.sellersbackend.resources;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,6 +13,7 @@ import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.abutua.sellersbackend.models.Seller;
+import com.abutua.sellersbackend.repositories.SellerRepository;
 
 import java.net.URI;
 import java.util.List;
@@ -22,6 +24,9 @@ import java.util.ArrayList;
 public class SellerController {
 
     private List<Seller> sellers = new ArrayList<>();
+
+    @Autowired
+    private SellerRepository sellerRepository;
 
     @PostMapping("sellers")
     public ResponseEntity<Seller> save(@RequestBody Seller seller) {
@@ -50,7 +55,7 @@ public class SellerController {
 
     @GetMapping("sellers")
     public List<Seller> getSellers() {
-        return sellers;
+        return sellerRepository.findAll();
     }
     
 }
